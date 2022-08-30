@@ -26,9 +26,9 @@ app.use(passport.session())
 
 //**  Routes  **/
 
-// app.use(require('./routes/login.js'))
+app.use(require('./routes/login.js'))
 app.use(require('./routes/index.js'))
-// app.use(require('./routes/register.js'))
+app.use(require('./routes/register.js'))
 
 
 app.listen(port, () => {
