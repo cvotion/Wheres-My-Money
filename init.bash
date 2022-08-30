@@ -1,1 +1,1 @@
-npm i express ejs passport@0.5 passport-local bcryptjs cookie-session helmet pg pg-hstore sequelize
+# npm i express ejs passport@0.5 passport-local bcryptjs cookie-session helmet pg pg-hstore sequelize

@@ -6,6 +6,7 @@ require('./auth/passport-config')(passport);
 const cookieSession = require('cookie-session');
 const port = 3000;
 
+const db = require('./models');
 
 app.use(express.static('public'));
 app.use(helmet());
@@ -22,6 +23,13 @@ app.use(cookieSession({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+//**  Routes  **/
+
+app.use(require('./routes/login.js'))
+app.use(require('./routes/index.js'))
+app.use(require('./routes/register.js'))
+
 
 app.listen(port, () => {
     console.log(`port running on port ${port}`);
