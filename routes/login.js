@@ -3,11 +3,13 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
 
-router.get('/login', auth.unauthReq, (req,res) => {
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+}))
 
-   
-    res.render('login')
+router.get('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/')
 })
-
-
 module.exports = router;
