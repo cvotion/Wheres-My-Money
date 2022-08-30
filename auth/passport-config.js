@@ -37,16 +37,16 @@ const init = (passport) => {
     }))
 
     //! in production mode we need to import these variables from a .env file
-    passport.use(new googleStrategy({
-        clientID: '907968964497-e8jrp7mfu09fadm1ep4iibefm0t6tkgm.apps.googleusercontent.com',
-        clientSecret: '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',
-        callbackURL: "http://localhost:3000/login",
-        passReqToCallback: true
-    }, authUser))
+    // passport.use(new googleStrategy({
+    //     clientID: '907968964497-e8jrp7mfu09fadm1ep4iibefm0t6tkgm.apps.googleusercontent.com',
+    //     clientSecret: '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',
+    //     callbackURL: "http://localhost:3000/login",
+    //     passReqToCallback: true
+    // }, authUser))
 
-    authUser = (request, accessToken, refreshToken, user, done) => {
-        return done(null, user);
-    }
+    // authUser = (request, accessToken, refreshToken, user, done) => {
+    //     return done(null, user);
+    // }
 
     passport.serializeUser((user, done) => {
         
