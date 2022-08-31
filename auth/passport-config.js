@@ -101,16 +101,43 @@ const init = (passport) => {
     passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: 'http://localhost:3000/google/callback',
-        passReqToCallback: true
+        callbackURL: 'https://localhost:3000/google/callback',
       },
-      async function(req, accessToken, refreshToken, profile, done){
-        console.log(profile)
-        let testProf = await db.users.findByPk(1)
-        console.log('----------------------');
-        console.log(accessToken);
-        console.log('----------------------');
-        return done(null, testProf, accessToken)
+      async function(refreshToken, profile, done){
+
+        console.log(done);
+        console.log({refreshToken, profile, done});
+        let email = profile.emails[0].value
+        // let testProf = await db.users.findByPk(1)
+        // console.log(accessToken);
+
+        try {
+            // console.log(password);
+            let records = await db.users.findAll({where: {email}})
+
+            if (records[0]){
+                console.log(records[0]);
+                console.log('logging into existing account');
+                //user already exists in our database
+                return done(null, records[0])
+
+            }
+            else{
+                console.log('creating new user from google email');
+                //new user so we create a new user
+                let insertRecord = await db.users.create({email})
+                let user = await db.users.findAll({where: {email}})
+
+                return done(null, user[0])
+            }
+
+        } catch (error) {
+            //db error
+            return done(error)
+        }
+
+
+        // return done(null, testProf)
       }))
 
 
@@ -129,7 +156,7 @@ const init = (passport) => {
                 done(null, false)
             }
         } catch (error) {
-            done(null, result)
+            done(error)
         }
     })
 }
