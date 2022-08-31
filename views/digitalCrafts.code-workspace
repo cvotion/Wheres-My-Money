@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../web-ft-07-2022"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "digitalCrafts"
+	}
+}
