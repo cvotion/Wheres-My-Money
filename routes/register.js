@@ -8,7 +8,7 @@ const auth = require('../auth');
 
 router.get('/register', auth.unauthReq, (req,res) => {
 
-   
+
     res.render('register')
 })
 
