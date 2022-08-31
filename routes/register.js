@@ -36,7 +36,7 @@ router.post('/registration', async (req,res) => {
         console.log(error);
         
         res.status(404).render('registration', {
-            error: 'Error: cant register username'
+            error: `Error: can't register username`
         })
     }
 })
