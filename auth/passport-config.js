@@ -98,19 +98,21 @@ const init = (passport) => {
     //   }
     // ));
 
-    // passport.use(new GoogleStrategy({
-    //     clientID: process.env[GOOGLE_CLIENT_ID],
-    //     clientSecret: process.env[GOOGLE_CLIENT_SECRET],
-    //     callbackURL: 'https://localhost:3000/google/callback',
-    //     passReqToCallback: true
-    //   },
-    //   function(req, accessToken, refreshToken, profile, done){
-        
-    //   }))
+    passport.use(new GoogleStrategy({
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
+        callbackURL: 'http://localhost:3000/google/callback',
+        passReqToCallback: true
+      },
+      async function(req, accessToken, refreshToken, profile, done){
+        console.log(profile)
+        let testProf = await db.users.findByPk(1)
+        console.log('----------------------');
+        console.log(accessToken);
+        console.log('----------------------');
+        return done(null, testProf, accessToken)
+      }))
 
-    // authUser = (request, accessToken, refreshToken, user, done) => {
-    //     return done(null, user);
-    // }
 
     passport.serializeUser((user, done) => {
         console.log(user.dataValues);
