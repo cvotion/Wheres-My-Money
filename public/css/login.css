@@ -12,6 +12,11 @@
     --success-hsl: 100, 60%, 50%;
     --error-hsl: 0, 60%, 50%;
 }
+
+body{
+    margin:0;
+}
+
 .full-screen-container{
     background-image: url("../images/login.jpg");
     height: 100vh;
