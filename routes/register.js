@@ -12,22 +12,21 @@ router.get('/register', auth.unauthReq, (req,res) => {
     res.render('register')
 })
 
-router.post('/registration', async (req,res) => {
+router.post('/register', async (req,res) => {
     console.log('Registering user');
 
     try {
         //scrape info from the header
-        let { email, password, userName } = req.body
+        let { email, password, username } = req.body
 
         //encrypt password
         password = bcrypt.hashSync(password, 8)
 
         //create user in db
         let insertRecord = await db.users.create({
-            userName,
+            username,
             email,
-            password,
-            // roleID: 1
+            password
         })
         
         res.redirect('/login')

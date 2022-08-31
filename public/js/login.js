@@ -5,7 +5,7 @@
   
   
   loginButton.addEventListener('click', async e=>{
-    e.preventDefault();
+    // e.preventDefault();
   
     //make fetch call to store info into an obj
     let newLogin = {
