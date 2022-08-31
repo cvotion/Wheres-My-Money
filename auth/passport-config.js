@@ -10,13 +10,13 @@ const init = (passport) => {
 
     passport.use(new localStrategy({usernameField: 'email'}, async (email, password, done) => {
         try {
-            console.log(password);
+            // console.log(password);
             let records = await db.users.findAll({where: {email:email}})
-            console.log(records);
+            // console.log(records);
 
             if (records){
                 let record = records[0]
-                console.log(record);
+                // console.log(record);
                 
 
                 bcrypt.compare(password, record.password, (err, match) => {
