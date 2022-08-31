@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  
+  <div class="budget-container">
+    <div class="app-title">
+        <a href="">Code<b>Explained</b></a>
+    </div>
+    <div class="budget-header">
+        <div class="balance">
+            <div class="title">
+                Balance
+            </div>
+            <div class="value">
+                <small>$</small>0
+            </div>
+        </div>
+        <div class="account">
+            <div class="income">
+                <div class="title">
+                    Income
+                </div>
+                <div class="income-total">
+                    <small>$</small>0
+                </div>
+            </div>
+            <div class="chart"></div>
+            <div class="outcome">
+                <div class="title">
+                    Outcome
+                </div>
+                <div class="outcome-total">
+                    <small>$</small>0
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="budget-dashboard">
+        <div class="dash-title">Dashboard</div>
+        <div class="toggle">
+            <div class="tab1">Expenses</div>
+            <div class="tab2">Income</div>
+            <div class="tab3 active">All</div>
+        </div>
+        <div class="hide" id="income">
+            <ul class="list"></ul>
+            <div class="input">
+                <input type="text" id="income-title-input" name="title" placeholder="Title">
+                <input type="number" id="income-amount-input" name="amount" placeholder="$0">
+                <div class="add-income"><img src="/images/plus.png" alt=""></div>
+            </div>
+        </div>
+        <div class="hide" id="expense">
+            <ul class="list"></ul>
+            <div class="input">
+                <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
+                <div class="add-expense"><img src="/images/plus.png" alt=""></div>
+            </div>
+        </div>
+        <div id="all">
+            <ul class="list"></ul>
+        </div>
+    </div>
+</div>
+
+<script src="/js/chart.js"></script>
+<script src="/js/budget.js"></script>
+</body>
+</html>
