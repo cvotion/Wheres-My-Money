@@ -6,17 +6,17 @@ const auth = require('../auth');
 const db = require('../models');  //connected with the database models folder
 
 
-// router.post('/login', passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/login'  
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'  
 
-// }))
+}))
 
-router.post('/login', (req, res) => {
-    let {email, password} = req.body;
-    console.log("login route here")
-    console.log(email);
-    console.log(password);
+// router.post('/login', (req, res) => {
+//     let {email, password} = req.body;
+//     console.log("login route here")
+//     console.log(email);
+//     console.log(password);
     //check db for correct username, password
     //re-encrypting the password  check to see if hashes match
     // let user = users.find(userRecord =>{
@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
         //redirect them to log back in
     //     res.redirect('/register')
     // }
-})
+// })
 
 
 
@@ -56,6 +56,6 @@ router.get('/google/callback', passport.authenticate('google', {failureRedirect:
 
 router.get('/logout', (req, res) => {
     req.logOut()
-    res.redirect('/')
+    res.redirect('/login')
 })
 module.exports = router;

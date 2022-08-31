@@ -10,10 +10,14 @@ const init = (passport) => {
 
     passport.use(new localStrategy({usernameField: 'email'}, async (email, password, done) => {
         try {
-            let records = await db.users.findAll({where: {email}})
+            console.log(password);
+            let records = await db.users.findAll({where: {email:email}})
+            console.log(records);
 
             if (records){
                 let record = records[0]
+                console.log(record);
+                
 
                 bcrypt.compare(password, record.password, (err, match) => {
                     if(match){
@@ -109,8 +113,8 @@ const init = (passport) => {
     // }
 
     passport.serializeUser((user, done) => {
-        
-        done(null, user.id)
+        console.log(user.dataValues);
+        done(null, user.dataValues.id)
     })
 
     passport.deserializeUser(async (id, done) => {
