@@ -1,7 +1,10 @@
 const localStrategy = require('passport-local')//.Strategy;
-const googleStrategy = require('passport-google-oidc')
+const GoogleStrategy = require('passport-google-oidc')
 const bcrypt = require('bcryptjs');
 const db = require('../models')
+
+GOOGLE_CLIENT_ID = '907968964497-e8jrp7mfu09fadm1ep4iibefm0t6tkgm.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET = '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'
 
 const init = (passport) => {
 
@@ -43,6 +46,63 @@ const init = (passport) => {
     //     callbackURL: "http://localhost:3000/login",
     //     passReqToCallback: true
     // }, authUser))
+
+    // passport.use(new GoogleStrategy({
+    //     clientID: process.env[GOOGLE_CLIENT_ID],
+    //     clientSecret: process.env[GOOGLE_CLIENT_SECRET],
+    //     callbackURL: 'https://localhost:3000/google/callback',
+    //     passReqToCallback: true
+    //   },
+    //   function(issuer, profile, cb) {
+    //     db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [ //! check if in db
+    //       issuer,
+    //       profile.id
+    //     ], function(err, cred) {
+    //       if (err) { return cb(err); }
+    //       if (!cred) {
+    //         // The Google account has not logged in to this app before.  Create a
+    //         // new user record and link it to the Google account.
+    //         db.run('INSERT INTO users (name) VALUES (?)', [ //! create a new user !\\
+    //           profile.displayName
+    //         ], function(err) {
+    //           if (err) { return cb(err); }
+    
+    //           var id = this.lastID;
+    //           db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
+    //             id,
+    //             issuer,
+    //             profile.id
+    //           ], function(err) {
+    //             if (err) { return cb(err); }
+    //             var user = {
+    //               id: id.toString(),
+    //               name: profile.displayName
+    //             };
+    //             return cb(null, user);
+    //           });
+    //         }); //!\\
+    //       } else {
+    //         // The Google account has previously logged in to the app.  Get the
+    //         // user record linked to the Google account and log the user in.
+    //         db.get('SELECT * FROM users WHERE id = ?', [ cred.user_id ], function(err, user) {
+    //           if (err) { return cb(err); }
+    //           if (!user) { return cb(null, false); }
+    //           return cb(null, user);
+    //         });
+    //       }
+    //     });
+    //   }
+    // ));
+
+    // passport.use(new GoogleStrategy({
+    //     clientID: process.env[GOOGLE_CLIENT_ID],
+    //     clientSecret: process.env[GOOGLE_CLIENT_SECRET],
+    //     callbackURL: 'https://localhost:3000/google/callback',
+    //     passReqToCallback: true
+    //   },
+    //   function(req, accessToken, refreshToken, profile, done){
+        
+    //   }))
 
     // authUser = (request, accessToken, refreshToken, user, done) => {
     //     return done(null, user);
