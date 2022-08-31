@@ -6,4 +6,4 @@
 
 # sequelize model:generate --name records --attributes userID:integer,
 
-sequelize model:generate --name records --attributes date:string,description:string,amount:integer,type:string,category:string,userID:integer
+# sequelize model:generate --name records --attributes date:string,description:string,amount:integer,type:string,category:string,userID:integer
