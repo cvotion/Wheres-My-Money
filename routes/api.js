@@ -18,7 +18,7 @@ router.post('/api', auth.authReq, async (req,res) => {
     try {
 
         let userID = req.user.id
-        let { date, description, amount, type } = req.body
+        let { date, description, amount, type, category } = req.body
 
         let records = await db.records.create({
             date,

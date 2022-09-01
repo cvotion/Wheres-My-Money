@@ -81,59 +81,64 @@
                                 </div>
                             </div>
                         </div>
-                        <form class="new-added-form" action="/action" method="POST">
+                        <form class="new-added-form" action="" method="POST" id="transaction-form">
                             <div class="row">
                                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                                     <label>Date</label>
-                                    <input type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker" >
+                                    <input type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker" id="form-date" name="date">
                                     <!-- <i class="far fa-calendar-alt"></i> -->
                                 </div>
 
                                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                                     <label>Description</label>
-                                    <input type="text" placeholder="" class="form-control">
+                                    <input type="text" placeholder="" class="form-control" id="form-description" name="description">
                                 </div>
                                 
                                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                                     <label>Amount</label>
-                                    <input type="text" placeholder="" class="form-control">
+                                    <input type="text" placeholder="" class="form-control" id="form-amount" name="amount">
                                 </div>
 
                                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                                     <label>Type</label>
-                                    <select class="select2">
-                                        <option value="1">Deposit</option>
-                                        <option value="2">Transaction</option>
+                                    <select class="select2" id="form-type">
+                                        <option value="Deposit">Deposit</option>
+                                        <option value="Transaction">Transaction</option>
                                     </select>
                                 </div>
                                 
                                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                                     <label>Category</label>
-                                    <select class="select2">
-                                        <option value="1">Auto and Transport</option>
-                                        <option value="2">Bills & Utilities</option>
-                                        <option value="3">Business Services</option>
-                                        <option value="4">Education</option>
-                                        <option value="5">Entertainment</option>
-                                        <option value="6">Fees and Charges</option>
-                                        <option value="7">Financial</option>
-                                        <option value="8">Food & Dining</option>
-                                        <option value="9">Gifts & Donations</option>
-                                        <option value="10">Health & Fitness</option>
-                                        <option value="11">Home</option>
-                                        <option value="12">Income</option>
-                                        <option value="13">Investments</option>
-                                        <option value="14">Kids</option>
-                                        <option value="15">Loan Payments</option>
-                                        <option value="16">Misc Expenses</option>
-                                        <option value="17">Personal Care</option>
-                                        <option value="18">Pets</option>
-                                        <option value="19">Shopping</option>
-                                        <option value="20">Taxes</option>
-                                        <option value="21">Transfer</option>
-                                        <option value="22">Travel</option>
-                                        <option value="23">Uncategorized</option>
+                                    <select class="select2" id="form-category">
+                                        <option value="Auto and Transport">Auto and Transport</option>
+                                        <option value="Bills & Utilities">Bills & Utilities</option>
+                                        <option value="Business Services">Business Services</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Fees and Charges">Fees and Charges</option>
+                                        <option value="Financial">Financial</option>
+                                        <option value="Food & Dining">Food & Dining</option>
+                                        <option value="Gifts & Donations">Gifts & Donations</option>
+                                        <option value="Health & Fitness">Health & Fitness</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Income">Income</option>
+                                        <option value="Investments">Investments</option>
+                                        <option value="Kids">Kids</option>
+                                        <option value="Loan Payments">Loan Payments</option>
+                                        <option value="Misc Expenses">Misc Expenses</option>
+                                        <option value="Personal Care">Personal Care</option>
+                                        <option value="Pets">Pets</option>
+                                        <option value="Shopping">Shopping</option>
+                                        <option value="Taxes">Taxes</option>
+                                        <option value="Transfer">Transfer</option>
+                                        <option value="Travel">Travel</option>
+                                        <option value="Uncategorized">Uncategorized</option>
                                     </select>
+                                </div>
+
+                                <div class="col-12 form-group mg-t-8">
+                                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" id="transaction-button">Submit</button>
+                                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
                                 </div>
                                 
                             </div>
@@ -170,6 +175,7 @@
     <script src="/js/chart.js"></script>
 
     <script defer src="/js/modernizr-3.6.0.min.js"></script>
+    <script src="/js/clientTransaction.js"></script>
 
 </body>
 
