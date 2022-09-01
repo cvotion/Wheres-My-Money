@@ -1,19 +1,21 @@
 
-
 <!-- Header Menu Area Start Here -->
 <div class="navbar navbar-expand-md header-menu-one bg-light">
     <div class="nav-bar-header-one">
-        <div class="header-logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="logo">
+        <div class="header-logo d-flex">
+            <a href="/">
+                <img src="/images/nav-icon.png" width="40px" alt="logo">
             </a>
+            <div class="d-flex justify-content-end align-items-center w-100 text-white">
+                Back End A Team
+            </div>
         </div>
           <div class="toggle-button sidebar-toggle">
             <button type="button" class="item-link">
                 <span class="btn-icon-wrap">
+                    <!-- <span></span>
                     <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span> -->
                 </span>
             </button>
         </div>
@@ -26,8 +28,8 @@
             <i class="fas fa-bars"></i>
         </button>
     </div>
-    <div class="header-main-menu collapse navbar-collapse justify-content-end" id="mobile-navbar">
-        <!-- <ul class="navbar-nav">
+    <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+        <ul class="navbar-nav">
             <li class="navbar-item header-search-bar">
                 <div class="input-group stylish-input-group">
                     <span class="input-group-addon">
@@ -38,19 +40,19 @@
                     <input type="text" class="form-control" placeholder="Find Something . . .">
                 </div>
             </li>
-        </ul> -->
+        </ul>
         <ul class="navbar-nav">
             <li class="navbar-item dropdown header-admin">
-                <!-- <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                    aria-expanded="false"> -->
+                <div class="navbar-nav-link " href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
                     <div class="admin-title">
-                        <h5 class="item-title">Username display here</h5>
-                        <span>User</span>
+                        <h5 class="item-title"> <%= user.username %> </h5>
+                        <span><a href="/logout">Logout</a></span>
                     </div>
                     <!-- <div class="admin-img">
                         <img src="img/figure/admin.jpg" alt="Admin">
                     </div> -->
-                <!-- </a> -->
+                </div>
                 <!-- <div class="dropdown-menu dropdown-menu-right">
                     <div class="item-header">
                         <h6 class="item-title">Steven Zone</h6>
@@ -66,15 +68,15 @@
                     </div>
                 </div> -->
             </li>
-            <!-- <li class="navbar-item dropdown header-message"> -->
-                <!-- <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+            <!-- <li class="navbar-item dropdown header-message">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
                     <i class="far fa-envelope"></i>
                     <div class="item-title d-md-none text-16 mg-l-10">Message</div>
                     <span>5</span>
-                </a> -->
+                </a>
 
-                <!-- <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu dropdown-menu-right">
                     <div class="item-header">
                         <h6 class="item-title">05 Message</h6>
                     </div>
@@ -140,8 +142,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-            <!-- </li> -->
+                </div>
+            </li> -->
             <!-- <li class="navbar-item dropdown header-notification">
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
@@ -185,7 +187,7 @@
                     </div>
                 </div>
             </li> -->
-             <!-- <li class="navbar-item dropdown header-language">
+            <!-- <li class="navbar-item dropdown header-language">
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" 
                 data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>EN</a>
                 <div class="dropdown-menu dropdown-menu-right">
