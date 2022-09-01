@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
 const db = require('../models');
-require('../public/js/doughnut')
+
 
 
 router.get('/', auth.authReq, async (req,res) => {

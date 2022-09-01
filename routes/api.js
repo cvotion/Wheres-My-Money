@@ -70,7 +70,7 @@ router.get('/api', auth.authReq, async (req,res) => {
 
     console.log('accessing the api');
     let records = await db.records.findAll({where :{ 'userID': req.user.id }})
-    updateDoughnut(results)
+    
     res.json({records})
 })
 

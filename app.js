@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 const passport = require('passport');
-require('./public/chartjs/index');
-const Chart = require('chart.js');
 require('./auth/passport-config')(passport);
 const cookieSession = require('cookie-session');
 const port = 3000;
