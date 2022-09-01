@@ -641,7 +641,7 @@
                                                     <th></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>  
+                                            <tbody class="transaction-appendhere">  
                                                 <!-- !this is where to display content from database of records -->
                                                 <tr>
                                                     <!-- <td>
@@ -658,6 +658,22 @@
                                                
                                                 </tr>
                                                
+
+                                                <tr>
+                                                    <!-- <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input">
+                                                            <label class="form-check-label">#1</label>
+                                                        </div>
+                                                    </td> -->
+                                                    <td class="text-center">date2 from the records database</td>
+                                                    <td>description2 from records</td>
+                                                    <td>amount2 from records</td>
+                                                    <td>Type2 from records</td>
+                                                    <td>Category2 from records</td>
+                                               
+                                                </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -675,6 +691,10 @@
         </div>
         <!-- Page Area End Here -->
     </div>
+    <!-- <script> 
+    let user = <%= user.id %> 
+    </script> -->
+    <script src="/js/displayTransaction.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script >
         const data = {

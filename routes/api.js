@@ -13,3 +13,5 @@ router.get('/api', auth.authReq, async (req,res) => {
 })
 
 module.exports = router;
+
+
