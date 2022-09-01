@@ -2,31 +2,32 @@
 <html class="no-js" lang="">
 
 <head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net/npm/chart.js 'unsafe-inline' 'unsafe-eval';">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>AKKHOR | Home 5</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="/css/all.min.css">
     <!-- Flaticon CSS -->
-    <link rel="stylesheet" href="fonts/flaticon.css">
+    <link rel="stylesheet" href="/fonts/flaticon.css">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
     <!-- Data Table CSS -->
-    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- Modernize js -->
-    <script src="js/modernizr-3.6.0.min.js"></script>
+    <script src="/js/modernizr-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -434,16 +435,17 @@
                         <div class="row">
                             <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
                                 <div class="dashboard-summery-two">
-                                    <div class="item-icon bg-light-magenta">
+                                    <canvas id="monthly-Expense-Chart"></canvas>
+                                    <!-- <div class="item-icon bg-light-magenta">
                                         <i class="flaticon-classmates text-magenta"></i>
                                     </div>
                                     <div class="item-content">
                                         <div class="item-number"><span class="counter" data-num="35000">35,000</span></div>
                                         <div class="item-title">Total Income from Last Month</div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
+                            <!-- <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
                                 <div class="dashboard-summery-two">
                                     <div class="item-icon bg-light-blue">
                                         <i class="flaticon-shopping-list text-blue"></i>
@@ -453,19 +455,20 @@
                                         <div class="item-title">Total Expense from Last Month</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
                                 <div class="dashboard-summery-two">
-                                    <div class="item-icon bg-light-yellow">
+                                    <canvas id="monthly-Income-Chart"></canvas>
+                                    <!-- <div class="item-icon bg-light-yellow">
                                         <i class="flaticon-mortarboard text-orange"></i>
                                     </div>
                                     <div class="item-content">
                                         <div class="item-number"><span class="counter" data-num="23890">23,890</span></div>
                                         <div class="item-title">Total Income from This Month</div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
+                            <!-- <div class="col-6-xxxl col-lg-3 col-sm-6 col-12">
                                 <div class="dashboard-summery-two">
                                     <div class="item-icon bg-light-red">
                                         <i class="flaticon-money text-red"></i>
@@ -475,7 +478,7 @@
                                         <div class="item-title">Total Expense from This Month</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- Dashboard summery End Here -->
@@ -501,9 +504,9 @@
                                 </div> -->
                                 <!--! !!!!!!!!!!!!!!!!!! CHART AREA !!!!!!!!!!!!!!!!!!!!!-->
                                 <!--? I GIVE UP -->
-                                <!-- <div class="" style="position: relative; height:50vh; width:80vw; z-index: 100;">
+                                <div class="" style="position: relative; height:60vh; width:50vw;">
                                     <canvas id="student-doughnut-chart"></canvas>
-                                </div>  -->
+                                </div> 
                                 <!--
                                 <div class="student-report">
                                     <div class="student-count pseudo-bg-blue">
@@ -675,81 +678,10 @@
         </div>
         <!-- Page Area End Here -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script >
-        const data = {
-    labels: [
-      'Auto and Transport',
-      'Bills & Utilities',
-      'Business Services',
-      'Bills & Utilities',
-      'Education',
-      'Entertainment',
-      'Fees and Charges',
-      'Financial',
-      'Food & Dining',
-      'Gifts & Donations',
-      'Health & Fitness',
-      'Home',
-      'Income',
-      'Investments',
-      'Kids',
-      'Loan Payments',
-      'Misc Expenses',
-      'Personal Care',
-      'Pets',
-      'Shopping',
-      'Taxes',
-      'Transfer',
-      'Travel',
-      'Uncategorized',
-      'Business Services'
-    ],
-    datasets: [{
-      label: 'Spending Summary',
-      data: [300, 50, 100, 25, 12, 25, 36, 400, 15, 75, 300, 50, 100, 25, 12, 25, 36, 400, 15, 75, 69, 420, 50],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
-  };
-
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {
-        indexAxis: 'y',
-    }
-  };
-
-  const myChart = new Chart(
-    document.getElementById('student-doughnut-chart'),
-    config
-);
-    </script>
+    <script src="/chartjs/index.js"></script>
+    <script src="/js/doughnut.js"></script>
+    <script src="/js/monthlyIncomeChart.js"></script>
+    <script src="/js/monthlyExpenseChart.js"></script>
 </body>
 
 </html>

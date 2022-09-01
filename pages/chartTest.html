@@ -77,14 +77,12 @@
   };
 
   const config = {
-    type: 'bar',
+    type: 'doughnut',
     data: data,
     options: {
-        scales: {
-      y: {
-        beginAtZero: true
-      }
-    },
+        legend:{
+            display: false
+        },
         cutoutPercentage: 85,
         animation: {
             animateScale: true
