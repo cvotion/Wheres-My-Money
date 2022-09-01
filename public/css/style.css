@@ -1991,7 +1991,7 @@ ul {
 @media only screen and (max-width: 767px) {
   .header-main-menu .navbar-nav .header-admin .navbar-nav-link .admin-title {
     padding: 0 0 0 15px;
-    text-align: left;
+    text-align: right;
   }
 }
 .header-main-menu .navbar-nav .header-admin .navbar-nav-link .admin-title .item-title {
