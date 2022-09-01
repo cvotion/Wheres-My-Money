@@ -6,7 +6,9 @@ const auth = require('../auth');
 router.get('/', auth.authReq, (req,res) => {
 
    
-    res.render('index')
+    res.render('index', {
+        user: req.user
+    })
 })
 
 
