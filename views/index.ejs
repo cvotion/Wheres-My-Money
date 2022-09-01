@@ -309,8 +309,19 @@
         <!-- Page Area End Here -->
     </div>
 
-    <script src="/js/displayTransaction.js"></script>
+    <script>
+        //  const ctx = document.getElementById('student-doughnut-chart')
+        //  console.log(ctx);
+        const getDB = async () =>{
+    let results = await fetch('/api')
+    let data = await results.json()
+    console.log(`OUR DATA----> ${data}`);
+}
+
+getDB()
+    </script>
     <script src="/chartjs/index.js"></script>
+    <script src="/js/displayTransaction.js"></script>
     <script src="/js/doughnut.js"></script>
     <script src="/js/monthlyIncomeChart.js"></script>
     <script src="/js/monthlyExpenseChart.js"></script>
