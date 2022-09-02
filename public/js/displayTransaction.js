@@ -122,6 +122,46 @@ const expenseData = {
     expenseConfig
 );
 
+// EXPENSE CHART END
+
+//! INCOME CHART START
+
+const incomeData = {
+    labels: [
+      'Last Month',
+      'This Month'
+    ],
+    datasets: [{
+      label: 'Income Comparison',
+      data: [0,0],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)'
+        
+      ],
+      hoverOffset: 4
+    }]
+  };
+
+  const incomeConfig = {
+    type: 'bar',
+    data: incomeData,
+    options: {
+        indexAxis: 'y',
+        animation: {
+            animateScale: true
+        },
+        responsive: true,
+        maintainAspectRatio: false
+    }
+  };
+
+  const incomeChart = new Chart(
+    document.getElementById('monthly-Income-Chart'),
+    incomeConfig
+);
+    
+
 const updateDoughnut = (results)=>{
     results.forEach(transaction => {
         console.log(`"step 1" ${results}`);
@@ -241,14 +281,21 @@ const getTransactionRecord = async () =>{
         displayTransaction.innerHTML = eachDisplay
 
         if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
-            console.log(expenseChart.data.datasets[0].data[1]);
             expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
         else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-08-01"){
             expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
+
+        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-07-30"){
+            incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
+        }
+        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-08-01"){
+            incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
+        }
     })
     expenseChart.update();
+    incomeChart.update();
     console.log(`${recordArr} <----`);
     updateDoughnut(recordArr)
     // updateExpenseChart(recordArr)
