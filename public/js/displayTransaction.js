@@ -203,18 +203,18 @@ const updateDoughnut = (results)=>{
    
 }
 
-const updateExpenseChart = async (results)=>{
-    console.log(`------> ${results}`);
-    await results.forEach(transaction => {
-        if (transaction.type == "Transaction" && transaction.date > "2022-07-30"){
-            expenseChart.expenseData.datasets[0].data[1] += transaction.amount;
-        }
-        else if(transaction.type == "Transaction" && transaction.date < "2022-08-01"){
-            expenseChart.expenseData.datasets[0].data[0] += transaction.amount;
-        }
-    });
-    await myChart.update();
-}
+// const updateExpenseChart = async (results)=>{
+//     console.log(`------> ${results}`);
+//     await results.forEach(transaction => {
+//         if (transaction.type == "Transaction" && transaction.date > "2022-07-30"){
+//             expenseChart.expenseData.datasets[0].data[1] += transaction.amount;
+//         }
+//         else if(transaction.type == "Transaction" && transaction.date < "2022-08-01"){
+//             expenseChart.expenseData.datasets[0].data[0] += transaction.amount;
+//         }
+//     });
+//     await myChart.update();
+// }
 
 
 const getTransactionRecord = async () =>{
@@ -239,10 +239,19 @@ const getTransactionRecord = async () =>{
             </tr>
         `
         displayTransaction.innerHTML = eachDisplay
+
+        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
+            console.log(expenseChart.data.datasets[0].data[1]);
+            expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+        }
+        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-08-01"){
+            expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+        }
     })
+    expenseChart.update();
     console.log(`${recordArr} <----`);
     updateDoughnut(recordArr)
-    updateExpenseChart(recordArr)
+    // updateExpenseChart(recordArr)
 }
 
 
