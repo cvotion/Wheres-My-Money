@@ -264,18 +264,18 @@ const getTransactionRecord = async () =>{
         displayTransaction.innerHTML = eachDisplay
 
         //! UPDATE EXPENSE CHART
-        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
+        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-08-30"){
             expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
-        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-08-01"){
+        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-09-01"){
             expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
 
         //! UPDATE INCOME CHART
-        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-07-30"){
+        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-08-30"){
             incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
-        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-08-01"){
+        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-09-01"){
             incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
     })
