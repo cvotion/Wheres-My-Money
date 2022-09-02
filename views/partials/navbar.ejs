@@ -23,11 +23,16 @@
     <div class="d-md-none mobile-nav-bar">
        <!-- <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
             <i class="far fa-arrow-alt-circle-down"></i>
-        </button> -->
-        <!-- <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+        </button>
+        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
             <i class="fas fa-bars"></i>
         </button> -->
+
+        <a href="/">Dashboard</a>
+        <a href="/form">Add Transactions</a>
+        <a href="/logout">Logout</a>
     </div>
+    
     <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
         <ul class="navbar-nav">
             <li class="navbar-item header-search-bar">
@@ -43,11 +48,10 @@
         </ul>
         <ul class="navbar-nav">
             <li class="navbar-item dropdown header-admin">
-                <div class="navbar-nav-link " href="#" role="button" data-toggle="dropdown"
-                    aria-expanded="false">
+                <div class="navbar-nav-link" href="#" role="button" >
                     <div class="admin-title">
                         <h5 class="item-title"> <%= user.username %> </h5>
-                        <span><a href="/logout">Logout</a></span>
+                        <!-- <span><a href="/logout">Logout</a></span> -->
                     </div>
                     <!-- <div class="admin-img">
                         <img src="img/figure/admin.jpg" alt="Admin">
