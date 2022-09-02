@@ -89,15 +89,26 @@ const data = {
 //! EXPENSE CHART START 
 const expenseData = {
     labels: [
-      'Last Month',
-      'This Month'
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
     ],
     datasets: [{
       label: 'Expense Comparison',
-      data: [0,0],
+      data: [0,0,0,0,0,0,0,0,0,0,0,0],
       backgroundColor: [
         'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)'
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
         
       ],
       hoverOffset: 4
@@ -128,15 +139,26 @@ const expenseData = {
 
 const incomeData = {
     labels: [
-      'Last Month',
-      'This Month'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ],
     datasets: [{
       label: 'Income Comparison',
-      data: [0,0],
+      data: [0,0,0,0,0,0,0,0,0,0,0,0],
       backgroundColor: [
         'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)'
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
         
       ],
       hoverOffset: 4
@@ -264,20 +286,93 @@ const getTransactionRecord = async () =>{
         displayTransaction.innerHTML = eachDisplay
 
         //! UPDATE EXPENSE CHART
-        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-08-30"){
-            expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+
+        if (eachTransaction.type == "Transaction"){
+            {
+                if(eachTransaction.date >= '2022-01-01' && eachTransaction.date < '2022-02-01'){
+                    expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-02-01' && eachTransaction.date < '2022-03-01'){
+                    expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-03-01' && eachTransaction.date < '2022-04-01'){
+                    expenseChart.data.datasets[0].data[2] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-04-01' && eachTransaction.date < '2022-05-01'){
+                    expenseChart.data.datasets[0].data[3] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-05-01' && eachTransaction.date < '2022-06-01'){
+                    expenseChart.data.datasets[0].data[4] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-06-01' && eachTransaction.date < '2022-07-01'){
+                    expenseChart.data.datasets[0].data[5] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-07-01' && eachTransaction.date < '2022-08-01'){
+                    expenseChart.data.datasets[0].data[6] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-08-01' && eachTransaction.date < '2022-09-01'){
+                    expenseChart.data.datasets[0].data[7] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-09-01' && eachTransaction.date < '2022-10-01'){
+                    expenseChart.data.datasets[0].data[8] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-10-01' && eachTransaction.date < '2022-11-01'){
+                    expenseChart.data.datasets[0].data[9] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-11-01' && eachTransaction.date < '2022-12-01'){
+                    expenseChart.data.datasets[0].data[10] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-12-01' && eachTransaction.date < '2023-01-01'){
+                    expenseChart.data.datasets[0].data[11] += eachTransaction.amount;
+                }
+            } 
         }
-        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-09-01"){
-            expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
-        }
+        // if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-08-30"){
+        //     expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+        // }
+        // else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-09-01"){
+        //     expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+        // }
 
         //! UPDATE INCOME CHART
-        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-08-30"){
-            incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
-        }
-        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-09-01"){
-            incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
-        }
+        if (eachTransaction.type == "Income"){
+            if(eachTransaction.date >= '2022-01-01' && eachTransaction.date < '2022-02-01'){
+                incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-02-01' && eachTransaction.date < '2022-03-01'){
+                incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-03-01' && eachTransaction.date < '2022-04-01'){
+                incomeChart.data.datasets[0].data[2] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-04-01' && eachTransaction.date < '2022-05-01'){
+                incomeChart.data.datasets[0].data[3] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-05-01' && eachTransaction.date < '2022-06-01'){
+                incomeChart.data.datasets[0].data[4] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-06-01' && eachTransaction.date < '2022-07-01'){
+                incomeChart.data.datasets[0].data[5] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-07-01' && eachTransaction.date < '2022-08-01'){
+                incomeChart.data.datasets[0].data[6] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-08-01' && eachTransaction.date < '2022-09-01'){
+                incomeChart.data.datasets[0].data[7] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-09-01' && eachTransaction.date < '2022-10-01'){
+                incomeChart.data.datasets[0].data[8] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-10-01' && eachTransaction.date < '2022-11-01'){
+                incomeChart.data.datasets[0].data[9] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-11-01' && eachTransaction.date < '2022-12-01'){
+                incomeChart.data.datasets[0].data[10] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-12-01' && eachTransaction.date < '2023-01-01'){
+                incomeChart.data.datasets[0].data[11] += eachTransaction.amount;
+            }
+        } 
     })
     expenseChart.update();
     incomeChart.update();
