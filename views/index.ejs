@@ -230,12 +230,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card dashboard-card-eleven">
-                            <div class="card-body">
+                            <div class="card-body mt-5">
                                 <div class="heading-layout1">
                                     <div class="item-title">
                                         <h3>My Transaction</h3>
                                     </div>
-                                   <div class="dropdown">
+                                   <!-- <div class="dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" 
                                         data-toggle="dropdown" aria-expanded="false">...</a>
                 
@@ -244,7 +244,7 @@
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="table-box-wrap">
                                     <form class="search-form-box">
@@ -275,6 +275,9 @@
                                                     <th>Amount</th>
                                                     <th>Type</th>
                                                     <th>Category</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                    
                                                    
                                                     <th></th>
                                                 </tr>
@@ -302,17 +305,26 @@
                     </div>
                 </div>
                 <!-- Student Table Area End Here -->
-                <footer class="footer-wrap-layout1">
-                    <div class="copyright">© Copyrights <a href="#">akkhor</a> 2019. All rights reserved. Designed by <a href="#">PsdBosS</a></div>
-                </footer>
+                
                 
             </div>
         </div>
         <!-- Page Area End Here -->
     </div>
 
-    <script src="/js/displayTransaction.js"></script>
+    <script>
+        //  const ctx = document.getElementById('student-doughnut-chart')
+        //  console.log(ctx);
+        const getDB = async () =>{
+    let results = await fetch('/api')
+    let data = await results.json()
+    console.log(`OUR DATA----> ${data}`);
+}
+
+getDB()
+    </script>
     <script src="/chartjs/index.js"></script>
+    <script src="/js/displayTransaction.js"></script>
     <script src="/js/doughnut.js"></script>
     <script src="/js/monthlyIncomeChart.js"></script>
     <script src="/js/monthlyExpenseChart.js"></script>
