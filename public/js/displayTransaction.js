@@ -279,7 +279,8 @@ const getTransactionRecord = async () =>{
                 <td>${eachTransaction.amount}</td>
                 <td>${eachTransaction.type}</td>
                 <td>${eachTransaction.category}</td>
-                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button>  <button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">DELETE</button></td>
+                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button></td>
+                <td id="delete"> <button class="fw-btn-fill btn-gradient-yellow delete-button" id="delete-button" name="${eachTransaction.id}">DELETE</button></td>
             
             </tr>
         `
@@ -373,7 +374,33 @@ const getTransactionRecord = async () =>{
                 incomeChart.data.datasets[0].data[11] += eachTransaction.amount;
             }
         } 
+
+         //try out the dom
+    
+        
     })
+   
+    //delete button
+    let deleteButton = document.querySelectorAll('#delete-button');
+    console.log(deleteButton);
+    deleteButton.forEach(button =>{
+        button.addEventListener('click', async e=>{
+            console.log(e.target.name);
+            console.log(e);
+            let rowID = e.target.name;
+            //make api fetch call to delete the record
+            let deleteItem = await fetch('http://localhost:3000/api', {
+                method: "DELETE",
+                headers: {'Content-type': 'application/json; charset=UTF-8'},
+                body: JSON.stringify({rowID})
+            } )
+            getTransactionRecord()
+        })
+    })
+
+
+
+
     expenseChart.update();
     incomeChart.update();
     updateDoughnut(recordArr)
@@ -386,4 +413,4 @@ getTransactionRecord()
 
 
 
-//delete route
+
