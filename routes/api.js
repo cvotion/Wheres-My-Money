@@ -71,7 +71,7 @@ router.delete('/api', auth.authReq, async (req,res) => {
 
     try {
         let { rowID } = req.body
-        let result = await db.records.delete({where: {id: rowID}})
+        let result = await db.records.destroy({where: {id: rowID}})
    
         let records = await db.records.findAll({where: {'userID': req.user.id }})
 
