@@ -1,3 +1,8 @@
+$(()=>{
+
+
+
+
 let displayTransaction = document.querySelector(".transaction-appendhere");
 
 //! DOUGHNUT CHART START
@@ -242,12 +247,16 @@ const updateDoughnut = (results)=>{
 }
 
 
+let transactions = []
 const getTransactionRecord = async () =>{
+    let transactions = []
     let result = await fetch('http://localhost:3000/api');
     let resultRecord = await result.json();
     let recordArr = await resultRecord.records
     let eachDisplay = ""
     recordArr.forEach(eachTransaction=>{
+
+        transactions.push(eachTransaction)
         
         eachDisplay +=`
             <tr id="${eachTransaction.id}">
@@ -257,7 +266,7 @@ const getTransactionRecord = async () =>{
                 <td>${eachTransaction.amount}</td>
                 <td>${eachTransaction.type}</td>
                 <td>${eachTransaction.category}</td>
-                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button></td>
+                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button" name="${eachTransaction.id}">EDIT</button></td>
                 <td id="delete"> <button class="fw-btn-fill btn-gradient-yellow delete-button" id="delete-button" name="${eachTransaction.id}">DELETE</button></td>
             
             </tr>
@@ -287,11 +296,11 @@ const getTransactionRecord = async () =>{
    
     //delete button
     let deleteButton = document.querySelectorAll('#delete-button');
-    console.log(deleteButton);
+    // console.log(deleteButton);
     deleteButton.forEach(button =>{
         button.addEventListener('click', async e=>{
-            console.log(e.target.name);
-            console.log(e);
+            // console.log(e.target.name);
+            // console.log(e);
             let rowID = e.target.name;
             //make api fetch call to delete the record
             let deleteItem = await fetch('http://localhost:3000/api', {
@@ -301,6 +310,29 @@ const getTransactionRecord = async () =>{
             } )
             getTransactionRecord()
         })
+    })
+
+    //edit button
+    let editButton = document.querySelectorAll('#edit-button');
+    console.log(editButton);
+
+    editButton.forEach(button =>{
+        button.addEventListener('click', async e=>{
+            console.log(e);
+
+            let rowID = e.target.name;
+            
+            $('#exampleModalLabel').html('Edit Transaction')
+
+            $('#exampleModal').modal('show')
+
+            let editItem = await fetch('http://localhost:3000/api', {
+                method: "PUT",
+                headers: {'Content-type': 'application/json; charset=UTF-8'},
+                body: JSON.stringify({date, description, amount, type, category, rowID})
+            })
+        })
+
     })
 
 
@@ -314,6 +346,9 @@ const getTransactionRecord = async () =>{
 
 
 getTransactionRecord()
+
+
+}) //end of jQuery document ready
 
 
 
