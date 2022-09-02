@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
@@ -14,7 +13,6 @@ router.get('/api', auth.authReq, async (req,res) => {
     } catch (error) {
         res.status(400).json({error})
     }
-
 })
 
 router.post('/api', auth.authReq, async (req,res) => {
