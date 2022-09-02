@@ -2,12 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
-
-
-
 const db = require('../models');
-require('../public/chartjs/index')
-require('chart.js');
 
 router.get('/api', auth.authReq, async (req,res) => {
     console.log('retreiving data from the api');
@@ -67,7 +62,7 @@ router.put('/api', auth.authReq, async (req,res) => {
    
         res.json({records})
     } catch (error) {
-        
+        res.status(400).json({error})
     }
     
 })
