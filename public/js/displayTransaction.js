@@ -161,10 +161,9 @@ const incomeData = {
     incomeConfig
 );
     
-
+//! UPDATE DOUGHNUT CHART
 const updateDoughnut = (results)=>{
     results.forEach(transaction => {
-        console.log(`"step 1" ${results}`);
         switch(transaction.category){
             
             case 'Auto and Transport':
@@ -238,34 +237,17 @@ const updateDoughnut = (results)=>{
                 break;
         }
     });
-    console.log("step 2");
     myChart.update();
    
 }
-
-// const updateExpenseChart = async (results)=>{
-//     console.log(`------> ${results}`);
-//     await results.forEach(transaction => {
-//         if (transaction.type == "Transaction" && transaction.date > "2022-07-30"){
-//             expenseChart.expenseData.datasets[0].data[1] += transaction.amount;
-//         }
-//         else if(transaction.type == "Transaction" && transaction.date < "2022-08-01"){
-//             expenseChart.expenseData.datasets[0].data[0] += transaction.amount;
-//         }
-//     });
-//     await myChart.update();
-// }
 
 
 const getTransactionRecord = async () =>{
     let result = await fetch('http://localhost:3000/api');
     let resultRecord = await result.json();
     let recordArr = await resultRecord.records
-    console.log(` ${recordArr} <--------------`);
     let eachDisplay = ""
     recordArr.forEach(eachTransaction=>{
-        console.log(eachTransaction);
-        console.log(eachTransaction.description);
         
         eachDisplay +=`
             <tr>
@@ -280,6 +262,7 @@ const getTransactionRecord = async () =>{
         `
         displayTransaction.innerHTML = eachDisplay
 
+        //! UPDATE EXPENSE CHART
         if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
             expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
@@ -287,6 +270,7 @@ const getTransactionRecord = async () =>{
             expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
 
+        //! UPDATE INCOME CHART
         if (eachTransaction.type == "Income" && eachTransaction.date > "2022-07-30"){
             incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
@@ -296,7 +280,6 @@ const getTransactionRecord = async () =>{
     })
     expenseChart.update();
     incomeChart.update();
-    console.log(`${recordArr} <----`);
     updateDoughnut(recordArr)
     // updateExpenseChart(recordArr)
 }
