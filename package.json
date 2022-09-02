@@ -22,6 +22,7 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "helmet": "^6.0.0",
+    "node-fetch": "^3.2.10",
     "passport": "^0.5.3",
     "passport-google-oidc": "^0.1.0",
     "passport-local": "^1.0.0",
