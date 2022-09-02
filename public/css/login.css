@@ -83,7 +83,7 @@ body{
 }
 
 .input-group.error input{
-    box-shadow: 0 0 0 1px hsl(var(--error-hsl));
+    box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
 }
 
 
@@ -125,4 +125,14 @@ body{
 .login-button:hover,
 .login-button:focus {
     background-color: hsl(var(--primary-hsl), .4);
+}
+
+.google-login{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.google-signin{
+    color: white;
 }
