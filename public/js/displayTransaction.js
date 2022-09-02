@@ -87,44 +87,44 @@ const data = {
 // DOUGHNUT CHART END
 
 //! EXPENSE CHART START 
-// const expenseData = {
-//     labels: [
-//       'Last Month',
-//       'This Month'
-//     ],
-//     datasets: [{
-//       label: 'Expense Comparison',
-//       data: [19050,21020],
-//       backgroundColor: [
-//         'rgb(255, 99, 132)',
-//         'rgb(54, 162, 235)'
+const expenseData = {
+    labels: [
+      'Last Month',
+      'This Month'
+    ],
+    datasets: [{
+      label: 'Expense Comparison',
+      data: [0,0],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)'
         
-//       ],
-//       hoverOffset: 4
-//     }]
-//   };
+      ],
+      hoverOffset: 4
+    }]
+  };
 
-//   const expenseConfig = {
-//     type: 'bar',
-//     data: expenseData,
-//     options: {
-//         indexAxis: 'y',
-//         animation: {
-//             animateScale: true
-//         },
-//         responsive: true,
-//         maintainAspectRatio: false
-//     }
-//   };
+  const expenseConfig = {
+    type: 'bar',
+    data: expenseData,
+    options: {
+        indexAxis: 'y',
+        animation: {
+            animateScale: true
+        },
+        responsive: true,
+        maintainAspectRatio: false
+    }
+  };
 
-//   const expenseChart = new Chart(
-//     document.getElementById('monthly-Expense-Chart'),
-//     expenseConfig
-// );
+  const expenseChart = new Chart(
+    document.getElementById('monthly-Expense-Chart'),
+    expenseConfig
+);
 
 const updateDoughnut = (results)=>{
     results.forEach(transaction => {
-        console.log("step 1");
+        console.log(`"step 1" ${results}`);
         switch(transaction.category){
             
             case 'Auto and Transport':
@@ -161,7 +161,7 @@ const updateDoughnut = (results)=>{
                 myChart.data.datasets[0].data[10] += transaction.amount;
                 break;
             case 'Income':
-                myChart.data.datasets[0].data[11] += transaction.amount;
+                // myChart.data.datasets[0].data[11] += transaction.amount;
                 break;
             case 'Investments':
                 myChart.data.datasets[0].data[12] += transaction.amount;
@@ -200,18 +200,28 @@ const updateDoughnut = (results)=>{
     });
     console.log("step 2");
     myChart.update();
+   
 }
 
-const updateExpenseChart = (results)=>{
-
-}
+// const updateExpenseChart = async (results)=>{
+//     console.log(`------> ${results}`);
+//     await results.forEach(transaction => {
+//         if (transaction.type == "Transaction" && transaction.date > "2022-07-30"){
+//             expenseChart.expenseData.datasets[0].data[1] += transaction.amount;
+//         }
+//         else if(transaction.type == "Transaction" && transaction.date < "2022-08-01"){
+//             expenseChart.expenseData.datasets[0].data[0] += transaction.amount;
+//         }
+//     });
+//     await myChart.update();
+// }
 
 
 const getTransactionRecord = async () =>{
     let result = await fetch('http://localhost:3000/api');
     let resultRecord = await result.json();
-    let recordArr = resultRecord.records
-    console.log(recordArr);
+    let recordArr = await resultRecord.records
+    console.log(` ${recordArr} <--------------`);
     let eachDisplay = ""
     recordArr.forEach(eachTransaction=>{
         console.log(eachTransaction);
@@ -229,9 +239,19 @@ const getTransactionRecord = async () =>{
             </tr>
         `
         displayTransaction.innerHTML = eachDisplay
-    })
 
+        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
+            console.log(expenseChart.data.datasets[0].data[1]);
+            expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+        }
+        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-08-01"){
+            expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+        }
+    })
+    expenseChart.update();
+    console.log(`${recordArr} <----`);
     updateDoughnut(recordArr)
+    // updateExpenseChart(recordArr)
 }
 
 
