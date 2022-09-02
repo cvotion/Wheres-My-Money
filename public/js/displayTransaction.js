@@ -257,28 +257,55 @@ const getTransactionRecord = async () =>{
                 <td>${eachTransaction.amount}</td>
                 <td>${eachTransaction.type}</td>
                 <td>${eachTransaction.category}</td>
-                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button>  <button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">DELETE</button></td>
+                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button></td>
+                <td id="delete"> <button class="fw-btn-fill btn-gradient-yellow delete-button" id="delete-button" name="${eachTransaction.id}">DELETE</button></td>
             
             </tr>
         `
         displayTransaction.innerHTML = eachDisplay
 
         //! UPDATE EXPENSE CHART
-        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-07-30"){
+        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-08-30"){
             expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
-        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-08-01"){
+        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-09-01"){
             expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
 
         //! UPDATE INCOME CHART
-        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-07-30"){
+        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-08-30"){
             incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
         }
-        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-08-01"){
+        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-09-01"){
             incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
         }
+
+         //try out the dom
+    
+        
     })
+   
+    //delete button
+    let deleteButton = document.querySelectorAll('#delete-button');
+    console.log(deleteButton);
+    deleteButton.forEach(button =>{
+        button.addEventListener('click', async e=>{
+            console.log(e.target.name);
+            console.log(e);
+            let rowID = e.target.name;
+            //make api fetch call to delete the record
+            let deleteItem = await fetch('http://localhost:3000/api', {
+                method: "DELETE",
+                headers: {'Content-type': 'application/json; charset=UTF-8'},
+                body: JSON.stringify({rowID})
+            } )
+            getTransactionRecord()
+        })
+    })
+
+
+
+
     expenseChart.update();
     incomeChart.update();
     updateDoughnut(recordArr)
@@ -291,4 +318,4 @@ getTransactionRecord()
 
 
 
-//delete route
+
