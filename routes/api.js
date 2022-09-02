@@ -66,6 +66,7 @@ router.put('/api', auth.authReq, async (req,res) => {
 })
 
 router.delete('/api', auth.authReq, async (req,res) => {
+
     console.log('deleting data with the api');
 
     try {

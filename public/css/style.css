@@ -1579,6 +1579,12 @@ ul {
   margin-left: -10px;
   padding: 11px 0;
 }
+
+.mobile-nav-bar a{
+  padding: 10px;
+  font-size: small;
+  color: #ffab01;
+}
 .mobile-nav-bar .navbar-toggler {
   font-size: 20px;
   color: #444444;
@@ -2052,7 +2058,8 @@ ul {
 }
 @media only screen and (max-width: 767px) {
   .header-main-menu .navbar-nav .header-admin .dropdown-menu .item-header:after {
-    display: none;
+    /* display: none; */
+    position: absolute;
   }
 }
 .header-main-menu .navbar-nav .header-admin .dropdown-menu .item-header .item-title {
