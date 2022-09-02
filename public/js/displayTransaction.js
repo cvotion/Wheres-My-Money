@@ -268,13 +268,14 @@ const getTransactionRecord = async () =>{
         console.log(eachTransaction.description);
         
         eachDisplay +=`
-            <tr>
+            <tr id="${eachTransaction.id}">
                 
                 <td class="text-center">${eachTransaction.date}</td>
                 <td>${eachTransaction.description}</td>
                 <td>${eachTransaction.amount}</td>
                 <td>${eachTransaction.type}</td>
                 <td>${eachTransaction.category}</td>
+                <td><button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">EDIT</button>  <button type="submit" class="fw-btn-fill btn-gradient-yellow" id="edit-button">DELETE</button></td>
             
             </tr>
         `
@@ -304,3 +305,7 @@ const getTransactionRecord = async () =>{
 
 getTransactionRecord()
 
+
+
+
+//delete route

@@ -116,9 +116,10 @@ router.put('/api', auth.authReq, async (req,res) => {
 })
 
 router.delete('/api', auth.authReq, async (req,res) => {
-
+    let id =req.body.id;
     console.log('accessing the api');
     let records = await db.records.findAll({where :{ 'userID': req.user.id }})
+    let deleteTransaction = await db.records.destroy({where:{id}})
    
     res.json({records})
 })
