@@ -307,30 +307,58 @@ const getTransactionRecord = async () =>{
                 method: "DELETE",
                 headers: {'Content-type': 'application/json; charset=UTF-8'},
                 body: JSON.stringify({rowID})
-            } )
+            })
             getTransactionRecord()
         })
     })
 
-    //edit button
+    // edit button
     let editButton = document.querySelectorAll('#edit-button');
-    console.log(editButton);
+    // console.log(editButton);
+
 
     editButton.forEach(button =>{
         button.addEventListener('click', async e=>{
             console.log(e);
 
             let rowID = e.target.name;
-            
+            // console.log(rowID);
+
             $('#exampleModalLabel').html('Edit Transaction')
+            $('#form-date-modal').html(``)
 
             $('#exampleModal').modal('show')
 
-            let editItem = await fetch('http://localhost:3000/api', {
-                method: "PUT",
-                headers: {'Content-type': 'application/json; charset=UTF-8'},
-                body: JSON.stringify({date, description, amount, type, category, rowID})
+            let modalSubmit = document.getElementById('transaction-button-modal')
+
+            modalSubmit.addEventListener('click', async e =>{
+
+                e.preventDefault();
+                console.log(e);
+
+                let editDate = document.getElementById('form-date-modal')
+                let editDescription = document.getElementById('form-description-modal')
+                let editAmount = document.getElementById('form-amount-modal')
+                let editType = document.getElementById('form-type-modal')
+                let editCategory = document.getElementById('form-category-modal')
+
+                // console.log(editDescription);
+
+                let results = await fetch('http://localhost:3000/api', {
+                    method: "PUT",
+                    headers: {'Content-type': 'application/json; charset=UTF-8'},
+                    body: JSON.stringify({
+                        date: editDate.value, 
+                        description: editDescription.value, 
+                        amount: editAmount.value, 
+                        type: editType.value, 
+                        category: editCategory.value, 
+                        rowID})
+                })
+                getTransactionRecord()
             })
+ 
+           
         })
 
     })
@@ -344,6 +372,14 @@ const getTransactionRecord = async () =>{
     // updateExpenseChart(recordArr)
 }
 
+
+// function displayModal(){
+
+//     $('#exampleModalLabel').html('Edit Transaction')
+
+//     $('#exampleModal').modal('show')
+    
+// }
 
 getTransactionRecord()
 
