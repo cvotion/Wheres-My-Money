@@ -325,15 +325,38 @@ const getTransactionRecord = async () =>{
             // console.log(rowID);
 
             $('#exampleModalLabel').html('Edit Transaction')
-            $('#form-date-modal').html(``)
 
             $('#exampleModal').modal('show')
+
+            transactions.forEach(transaction=>{
+
+                // console.log(transaction.date);
+
+                if(transaction.id == rowID){
+                    // console.log(transaction.id);
+
+                    let modalDate = document.querySelector("#form-date-modal")
+                    modalDate.value = transaction.date
+
+                    let modalDescription = document.querySelector("#form-description-modal")
+                    modalDescription.value = transaction.description
+                    
+                    let modalAmount = document.querySelector("#form-amount-modal")
+                    modalAmount.value = transaction.amount
+                    
+                    let modalType = document.querySelector("#form-type-modal")
+                    modalType.value = transaction.type
+                    
+                    let modalCategory = document.querySelector("#form-category-modal")
+                    modalCategory.value = transaction.category
+                } 
+            })
 
             let modalSubmit = document.getElementById('transaction-button-modal')
 
             modalSubmit.addEventListener('click', async e =>{
 
-                e.preventDefault();
+                // e.preventDefault();
                 console.log(e);
 
                 let editDate = document.getElementById('form-date-modal')
@@ -355,14 +378,18 @@ const getTransactionRecord = async () =>{
                         category: editCategory.value, 
                         rowID})
                 })
+                
                 getTransactionRecord()
             })
- 
            
         })
 
+        // $('#exampleModal').modal('hide')
+
     })
 
+
+console.log(transactions);
 
 
 
