@@ -187,6 +187,9 @@ const incomeData = {
 const updateDoughnut = (results)=>{
     results.forEach(transaction => {
         switch(transaction.category){
+
+            //what am i dooing rn. this is super awkward please make it stop.
+            //  This sucks. the pictures look good though
             
             case 'Auto and Transport':
                 myChart.data.datasets[0].data[0] += transaction.amount;
@@ -375,6 +378,7 @@ const getTransactionRecord = async () =>{
             }
         } 
 
+        
          //try out the dom
     
         
