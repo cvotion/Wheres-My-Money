@@ -17,6 +17,7 @@
 * PostgresSQL
 * Sequelize
 * Passport
+* JQuery
 * Chart.js
 
 
@@ -26,13 +27,15 @@ The minimum viable product for this project was a web page that displays transac
 
 ## Stretch Goals Complteted
 
-* Search function that allows you to find transactions by description or category
+
 * Edit and delete buttons
+* Edit button uses modal to input new info
 
 ## Stretch Goals To Be Completed
 
 * Add transaction modal
 * More charts to provide additional data visualization
+* Search function that allows you to find transactions by description or category
 * Google authentication 
 
 ## Screenshots of the webpage:
@@ -53,4 +56,6 @@ The minimum viable product for this project was a web page that displays transac
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
--
+- Translating JQuery to use JS and CSS
+- Formatting EJS partials
+- Added edit function with Manjuan
