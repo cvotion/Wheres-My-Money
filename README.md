@@ -36,7 +36,11 @@ The minimum viable product for this project was a web page that displays transac
 * Google authentication 
 
 ## Screenshots of the webpage:
-
+![Screenshot](register.png)
+![Screenshot](login.png)
+![Screenshot](addtransaction.png)
+![Screenshot](dashboard.png)
+![Screenshot](editmodal.png)
 
 
 ## Dev Team
