@@ -94,15 +94,26 @@ const data = {
 //! EXPENSE CHART START 
 const expenseData = {
     labels: [
-      'Last Month',
-      'This Month'
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
     ],
     datasets: [{
       label: 'Expense Comparison',
-      data: [0,0],
+      data: [0,0,0,0,0,0,0,0,0,0,0,0],
       backgroundColor: [
         'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)'
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
         
       ],
       hoverOffset: 4
@@ -133,15 +144,26 @@ const expenseData = {
 
 const incomeData = {
     labels: [
-      'Last Month',
-      'This Month'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ],
     datasets: [{
       label: 'Income Comparison',
-      data: [0,0],
+      data: [0,0,0,0,0,0,0,0,0,0,0,0],
       backgroundColor: [
         'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)'
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
         
       ],
       hoverOffset: 4
@@ -166,16 +188,32 @@ const incomeData = {
     incomeConfig
 );
     
+
+//! RESET DOUGHNUT
+let resetDoughnut = ()=>{
+    console.log("reseting doughnut chart");
+    myChart.data.datasets[0].data.forEach(index=>{
+        console.log(index);
+        index = 0
+    })
+}
+
 //! UPDATE DOUGHNUT CHART
 const updateDoughnut = (results)=>{
+    resetDoughnut();
+    console.log("updating doughnut chart");
     results.forEach(transaction => {
         switch(transaction.category){
+
+            //what am i dooing rn. this is super awkward please make it stop.
+            //  This sucks. the pictures look good though
             
             case 'Auto and Transport':
                 myChart.data.datasets[0].data[0] += transaction.amount;
                 break;
             case 'Bills & Utilities':
                 myChart.data.datasets[0].data[1] += transaction.amount;
+                console.log(myChart.data.datasets[0].data[1]);
                 break;
             case 'Business Services':
                 myChart.data.datasets[0].data[2] += transaction.amount;
@@ -274,33 +312,97 @@ const getTransactionRecord = async () =>{
         displayTransaction.innerHTML = eachDisplay
 
         //! UPDATE EXPENSE CHART
-        if (eachTransaction.type == "Transaction" && eachTransaction.date > "2022-08-30"){
-            expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
-        }
-        else if(eachTransaction.type == "Transaction" && eachTransaction.date < "2022-09-01"){
-            expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+
+        if (eachTransaction.type == "Transaction"){
+            {
+                if(eachTransaction.date >= '2022-01-01' && eachTransaction.date < '2022-02-01'){
+                    expenseChart.data.datasets[0].data[0] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-02-01' && eachTransaction.date < '2022-03-01'){
+                    expenseChart.data.datasets[0].data[1] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-03-01' && eachTransaction.date < '2022-04-01'){
+                    expenseChart.data.datasets[0].data[2] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-04-01' && eachTransaction.date < '2022-05-01'){
+                    expenseChart.data.datasets[0].data[3] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-05-01' && eachTransaction.date < '2022-06-01'){
+                    expenseChart.data.datasets[0].data[4] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-06-01' && eachTransaction.date < '2022-07-01'){
+                    expenseChart.data.datasets[0].data[5] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-07-01' && eachTransaction.date < '2022-08-01'){
+                    expenseChart.data.datasets[0].data[6] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-08-01' && eachTransaction.date < '2022-09-01'){
+                    expenseChart.data.datasets[0].data[7] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-09-01' && eachTransaction.date < '2022-10-01'){
+                    expenseChart.data.datasets[0].data[8] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-10-01' && eachTransaction.date < '2022-11-01'){
+                    expenseChart.data.datasets[0].data[9] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-11-01' && eachTransaction.date < '2022-12-01'){
+                    expenseChart.data.datasets[0].data[10] += eachTransaction.amount;
+                }
+                if(eachTransaction.date >= '2022-12-01' && eachTransaction.date < '2023-01-01'){
+                    expenseChart.data.datasets[0].data[11] += eachTransaction.amount;
+                }
+            } 
         }
 
         //! UPDATE INCOME CHART
-        if (eachTransaction.type == "Income" && eachTransaction.date > "2022-08-30"){
-            incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
-        }
-        else if(eachTransaction.type == "Income" && eachTransaction.date < "2022-09-01"){
-            incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
-        }
+        if (eachTransaction.type == "Deposit"){
+            if(eachTransaction.date >= '2022-01-01' && eachTransaction.date < '2022-02-01'){
+                incomeChart.data.datasets[0].data[0] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-02-01' && eachTransaction.date < '2022-03-01'){
+                incomeChart.data.datasets[0].data[1] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-03-01' && eachTransaction.date < '2022-04-01'){
+                incomeChart.data.datasets[0].data[2] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-04-01' && eachTransaction.date < '2022-05-01'){
+                incomeChart.data.datasets[0].data[3] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-05-01' && eachTransaction.date < '2022-06-01'){
+                incomeChart.data.datasets[0].data[4] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-06-01' && eachTransaction.date < '2022-07-01'){
+                incomeChart.data.datasets[0].data[5] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-07-01' && eachTransaction.date < '2022-08-01'){
+                incomeChart.data.datasets[0].data[6] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-08-01' && eachTransaction.date < '2022-09-01'){
+                incomeChart.data.datasets[0].data[7] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-09-01' && eachTransaction.date < '2022-10-01'){
+                incomeChart.data.datasets[0].data[8] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-10-01' && eachTransaction.date < '2022-11-01'){
+                incomeChart.data.datasets[0].data[9] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-11-01' && eachTransaction.date < '2022-12-01'){
+                incomeChart.data.datasets[0].data[10] += eachTransaction.amount;
+            }
+            if(eachTransaction.date >= '2022-12-01' && eachTransaction.date < '2023-01-01'){
+                incomeChart.data.datasets[0].data[11] += eachTransaction.amount;
+            }
+        } 
 
-         //try out the dom
-    
         
     })
    
     //delete button
     let deleteButton = document.querySelectorAll('#delete-button');
-    // console.log(deleteButton);
+    
     deleteButton.forEach(button =>{
         button.addEventListener('click', async e=>{
-            // console.log(e.target.name);
-            // console.log(e);
+            
             let rowID = e.target.name;
             //make api fetch call to delete the record
             let deleteItem = await fetch('http://localhost:3000/api', {
@@ -314,7 +416,6 @@ const getTransactionRecord = async () =>{
 
     // edit button
     let editButton = document.querySelectorAll('#edit-button');
-    // console.log(editButton);
 
 
     editButton.forEach(button =>{
@@ -322,7 +423,6 @@ const getTransactionRecord = async () =>{
             console.log(e);
 
             let rowID = e.target.name;
-            // console.log(rowID);
 
             $('#exampleModalLabel').html('Edit Transaction')
 
@@ -330,10 +430,8 @@ const getTransactionRecord = async () =>{
 
             transactions.forEach(transaction=>{
 
-                // console.log(transaction.date);
 
                 if(transaction.id == rowID){
-                    // console.log(transaction.id);
 
                     let modalDate = document.querySelector("#form-date-modal")
                     modalDate.value = transaction.date
@@ -356,7 +454,7 @@ const getTransactionRecord = async () =>{
 
             modalSubmit.addEventListener('click', async e =>{
 
-                // e.preventDefault();
+                
                 console.log(e);
 
                 let editDate = document.getElementById('form-date-modal')
@@ -365,7 +463,7 @@ const getTransactionRecord = async () =>{
                 let editType = document.getElementById('form-type-modal')
                 let editCategory = document.getElementById('form-category-modal')
 
-                // console.log(editDescription);
+                
 
                 let results = await fetch('http://localhost:3000/api', {
                     method: "PUT",
@@ -396,6 +494,7 @@ console.log(transactions);
     expenseChart.update();
     incomeChart.update();
     updateDoughnut(recordArr)
+    console.log("updating all charts");
     // updateExpenseChart(recordArr)
 }
 
