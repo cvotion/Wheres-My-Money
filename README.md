@@ -17,6 +17,7 @@
 * PostgresSQL
 * Sequelize
 * Passport
+* JQuery
 * Chart.js
 
 
@@ -26,8 +27,15 @@ The minimum viable product for this project was a web page that displays transac
 
 ## Stretch Goals Complteted
 
-* Search function that allows you to find transactions by description or category
 * Edit and delete buttons
+* Edit button uses modal to input new info
+
+## Stretch Goals To Be Completed
+
+* Change transaction page to use a modal
+* More charts to provide additional data visualization
+* Search function that allows you to find transactions by description or category
+
 
 ## Stretch Goals To Be Completed
 
@@ -50,9 +58,14 @@ The minimum viable product for this project was a web page that displays transac
 -Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
 
 
+
 [Christian Votion:](https://github.com/cvotion)
 - Primary developer of the data visualization feature using chart.js and Bootstrap for mobile responsiveness.
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
--
+
+- Translating JQuery to use JS and CSS
+- Formatting EJS partials
+- Added edit function with Manjuan
+
