@@ -57,14 +57,18 @@ The minimum viable product for this project was a web page that displays transac
 -
 
 [Manjuan He:](https://github.com/Joyhecoder)
--Primary developer to connect frontend pages to backend database such as storing login information, transaction data into database by using ProgresSQL.
--Primary developer of the adding, editing and deleting transaction feature using Javascript, node, ExpressJS, Sequelize. 
--Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
+
+- Primary developer to connect frontend pages to backend database such as storing login information, transaction data into database by using ProgresSQL.
+- Primary developer of the adding, editing and deleting transaction feature using Javascript, node, ExpressJS, Sequelize. 
+- Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
 
 
 
 [Christian Votion:](https://github.com/cvotion)
-- Primary developer of the data visualization feature using chart.js and Bootstrap for mobile responsiveness.
+
+- Primary developer of the data visualization feature 
+- Used chart.js and Sequelize to create charts and display current data from database
+- Used Bootstrap for mobile responsiveness of charts.
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
