@@ -56,7 +56,7 @@ router.put('/api', auth.authReq, async (req,res) => {
             category,
         }, {where: {id: rowID}})
 
-        let records = await db.records.findAll({where: {'userID': req.user.id }})
+        let records = await db.records.findAll() //{where: {'userID': req.user.id }}
    
         res.json({records})
     } catch (error) {

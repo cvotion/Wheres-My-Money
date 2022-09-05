@@ -64,12 +64,12 @@
                 <!-- Breadcubs Area Start Here -->
                 <div class="breadcrumbs-area">
                     <h3>Dashboard</h3>
-                    <ul>
+                    <!-- <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
                         <li>Plan your budget and live a happier life</li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <!-- Breadcubs Area End Here -->
 
@@ -199,23 +199,23 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Date</label>
-                        <input type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker" id="form-date" name="date">
+                        <input type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker" id="form-date-modal" name="date">
                         <!-- <i class="far fa-calendar-alt"></i> -->
                     </div>
 
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Description</label>
-                        <input type="text" placeholder="" class="form-control" id="form-description" name="description">
+                        <input type="text" placeholder="" class="form-control" id="form-description-modal" name="description">
                     </div>
                     
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Amount</label>
-                        <input type="text" placeholder="" class="form-control" id="form-amount" name="amount">
+                        <input type="text" placeholder="" class="form-control" id="form-amount-modal" name="amount">
                     </div>
 
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Type</label>
-                        <select class="select2">
+                        <select class="select2" id="form-type-modal">
                             <option value="Deposit">Deposit</option>
                             <option value="Transaction">Transaction</option>
                         </select>
@@ -223,7 +223,7 @@
                     
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Category</label>
-                        <select class="select2" id="form-category">
+                        <select class="select2" id="form-category-modal">
                             <option value="Auto and Transport">Auto and Transport</option>
                             <option value="Bills & Utilities">Bills & Utilities</option>
                             <option value="Business Services">Business Services</option>
@@ -251,7 +251,7 @@
                     </div>
 
                     <div class="col-12 form-group mg-t-8">
-                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" id="transaction-button">Submit</button>
+                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" id="transaction-button-modal">Submit</button>
                         <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
                     </div>
                     
