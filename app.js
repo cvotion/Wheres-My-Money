@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 require('./auth/passport-config')(passport);
 const cookieSession = require('cookie-session');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const db = require('./models');
 

@@ -27,40 +27,47 @@ The minimum viable product for this project was a web page that displays transac
 
 ## Stretch Goals Complteted
 
+
 * Edit and delete buttons
 * Edit button uses modal to input new info
 
 ## Stretch Goals To Be Completed
 
-* Change transaction page to use a modal
-* More charts to provide additional data visualization
-* Search function that allows you to find transactions by description or category
-
-
-## Stretch Goals To Be Completed
-
 * Add transaction modal
 * More charts to provide additional data visualization
+* Search function that allows you to find transactions by description or category
 * Google authentication 
 
 ## Screenshots of the webpage:
-
+![Screenshot](register.png)
+![Screenshot](login.png)
+![Screenshot](addtransaction.png)
+![Screenshot](dashboard.png)
+![Screenshot](editmodal.png)
 
 
 ## Dev Team
 
 [Kipp Hulick:](https://github.com/Battlepigg)
--
+
+- Responsible for the initial app set up
+- Built the api to send data to the front end
+- Set up local authentication and authorization through google
+- Helped set up relational tables and make database calls using sequelize and ElephantSQL
 
 [Manjuan He:](https://github.com/Joyhecoder)
--Primary developer to connect frontend pages to backend database such as storing login information, transaction data into database by using ProgresSQL.
--Primary developer of the adding, editing and deleting transaction feature using Javascript, node, ExpressJS, Sequelize. 
--Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
+
+- Primary developer to connect frontend pages to backend database such as storing login information, transaction data into database by using ProgresSQL.
+- Primary developer of the adding, editing and deleting transaction feature using Javascript, node, ExpressJS, Sequelize. 
+- Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
 
 
 
 [Christian Votion:](https://github.com/cvotion)
-- Primary developer of the data visualization feature using chart.js and Bootstrap for mobile responsiveness.
+
+- Primary developer of the data visualization feature 
+- Used chart.js and Sequelize to create charts and display current data from database
+- Used Bootstrap for mobile responsiveness of charts.
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
@@ -68,4 +75,3 @@ The minimum viable product for this project was a web page that displays transac
 - Translating JQuery to use JS and CSS
 - Formatting EJS partials
 - Added edit function with Manjuan
-
