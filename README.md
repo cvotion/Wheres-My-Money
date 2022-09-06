@@ -72,7 +72,7 @@ The minimum viable product for this project was a web page that displays transac
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
-
+- Created the register page
 - Translating JQuery to use JS and CSS
 - Formatting EJS partials
 - Added edit function with Manjuan
