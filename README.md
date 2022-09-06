@@ -27,7 +27,6 @@ The minimum viable product for this project was a web page that displays transac
 
 ## Stretch Goals Complteted
 
-
 * Edit and delete buttons
 * Edit button uses modal to input new info
 
@@ -36,6 +35,12 @@ The minimum viable product for this project was a web page that displays transac
 * Change transaction page to use a modal
 * More charts to provide additional data visualization
 * Search function that allows you to find transactions by description or category
+
+
+## Stretch Goals To Be Completed
+
+* Add transaction modal
+* More charts to provide additional data visualization
 * Google authentication 
 
 ## Screenshots of the webpage:
@@ -48,7 +53,10 @@ The minimum viable product for this project was a web page that displays transac
 -
 
 [Manjuan He:](https://github.com/Joyhecoder)
--
+-Primary developer to connect frontend pages to backend database such as storing login information, transaction data into database by using ProgresSQL.
+-Primary developer of the adding, editing and deleting transaction feature using Javascript, node, ExpressJS, Sequelize. 
+-Set up login page, dashboard page using HTML, CSS and Bootstrap for responsiveness.
+
 
 
 [Christian Votion:](https://github.com/cvotion)
@@ -60,3 +68,4 @@ The minimum viable product for this project was a web page that displays transac
 - Translating JQuery to use JS and CSS
 - Formatting EJS partials
 - Added edit function with Manjuan
+
