@@ -49,7 +49,11 @@ The minimum viable product for this project was a web page that displays transac
 ## Dev Team
 
 [Kipp Hulick:](https://github.com/Battlepigg)
--
+
+- Responsible for the initial app set up
+- Built the api to send data to the front end
+- Set up local authentication and authorization through google
+- Helped set up relational tables and make database calls using sequelize and ElephantSQL
 
 [Manjuan He:](https://github.com/Joyhecoder)
 
@@ -67,6 +71,7 @@ The minimum viable product for this project was a web page that displays transac
 
 
 [Thomas Scheltema:](https://github.com/scheltemat)
+- Created the register page
 - Translating JQuery to use JS and CSS
 - Formatting EJS partials
 - Added edit function with Manjuan
