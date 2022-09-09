@@ -26,7 +26,7 @@ form.addEventListener('submit', async e=>{
     console.log(newTransaction);
 
     //make api call to add a new transaction into database
-    let results = await fetch('http://localhost:3000/api', {
+    let results = await fetch('/api', {
         method: "POST",
         headers: {'Content-type': 'application/json; charset=UTF-8'},
         body: JSON.stringify(newTransaction)

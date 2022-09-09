@@ -288,7 +288,7 @@ const updateDoughnut = (results)=>{
 let transactions = []
 const getTransactionRecord = async () =>{
     let transactions = []
-    let result = await fetch('http://localhost:3000/api');
+    let result = await fetch('/api');
     let resultRecord = await result.json();
     let recordArr = await resultRecord.records
     let eachDisplay = ""
@@ -405,7 +405,7 @@ const getTransactionRecord = async () =>{
             
             let rowID = e.target.name;
             //make api fetch call to delete the record
-            let deleteItem = await fetch('http://localhost:3000/api', {
+            let deleteItem = await fetch('/api', {
                 method: "DELETE",
                 headers: {'Content-type': 'application/json; charset=UTF-8'},
                 body: JSON.stringify({rowID})
@@ -465,7 +465,7 @@ const getTransactionRecord = async () =>{
 
                 
 
-                let results = await fetch('http://localhost:3000/api', {
+                let results = await fetch('/api', {
                     method: "PUT",
                     headers: {'Content-type': 'application/json; charset=UTF-8'},
                     body: JSON.stringify({

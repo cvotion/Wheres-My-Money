@@ -48,7 +48,7 @@ const init = (passport) => {
     passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: 'http://localhost:3000/google/callback',
+        callbackURL: '/google/callback',
     },
     async function(refreshToken, profile, done){
         try {
